@@ -21,7 +21,7 @@
 		</links>
 
 		<menu name="jpwgen">
-			<item name="Introduction" href="/introduction.html" collapse="false"/>
+			<item name="Introduction" href="/index.html" collapse="false"/>
 			<item name="Download" href="/download.html" collapse="false"/>
 			<item name="FAQ" href="/faq.html" collapse="false"/>
 			<item name="CLI options" href="/comparison.html" collapse="false"/>

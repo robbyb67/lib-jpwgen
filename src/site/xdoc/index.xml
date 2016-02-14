@@ -1,7 +1,7 @@
 <document>
 	<properties>
-		<author email="krasimir.zhelev@rrze.uni-erlangen.de">
-			IDMone Team
+		<author email="robbyb@mailbox.org">
+			Robert Bausdorf
 		</author>
 		<title>Introduction</title>
 	</properties>
@@ -10,9 +10,8 @@
 		<section name="Introduction">
 			<p>
 				The
-				<em>jpwgen</em>
-				is a Java-based password generator that can be used as a
-				command line program or as a library. The implemented
+				<em>lib-jpwgen</em>
+				is a Java-based password generator library. The implemented
 				functionality resembles the one provided by the popular
 				<em>pwgen</em>
 				program. The
@@ -28,7 +27,7 @@
 				for real-life usage.
 			</p>
 			<p>
-				<em>jpwgen</em>
+				<em>lib-jpwgen</em>
 				uses 100% Java and is thus platform independent. It
 				extends the
 				<em>pwgen</em>
@@ -36,7 +35,7 @@
 				checking different types of conditions such as whether a
 				password starts with a symbol or not, with a digit or
 				not and so on.
-				<em>jpwgen</em>
+				<em>lib-jpwgen</em>
 				supports blacklists and different types of secure random
 				generators. As an embedded library it can be employed in
 				the process of password generation against certain
@@ -46,7 +45,7 @@
 
 		<section name="Description">
 			<p>
-				<em>jpwgen</em>
+				<em>lib-jpwgen</em>
 				utilizes a predefined set of vowels and consonants that
 				are brought together by an iterative algorithm. The
 				concept of
@@ -67,17 +66,7 @@
 			</p>
 			
 			<p>
-				By default two filters are registered when
-				<em>jpwgen</em>
-				is started. The first one is an empty black-list filter.
-				It can be used to filter out forbidden predefined
-				passwords(such as
-				<em>qwerty</em>
-				). The second one is based on regular expressions and
-				uses frequently utilized rules for filtering passwords
-				such as the number of contained symbols, digits and so
-				on. See the help for a detailed description or refer to
-				the
+				See the help for a detailed description or refer to	the
 				<a href="./apidocs/index.html">
 					Javadoc
 				</a>
