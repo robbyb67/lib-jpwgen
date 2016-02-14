@@ -75,7 +75,7 @@ public class PwElement
 	/**
 	 * Sets the type of this password element
 	 * 
-	 * @param type
+	 * @param type The type
 	 */
 	public void setType(int type)
 	{
@@ -95,7 +95,7 @@ public class PwElement
 	/**
 	 * Sets the string representation of this password element
 	 * 
-	 * @param value
+	 * @param value The string value
 	 */
 	public void setValue(String value)
 	{

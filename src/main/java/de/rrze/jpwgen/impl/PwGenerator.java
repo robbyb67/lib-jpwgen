@@ -421,7 +421,7 @@ import de.rrze.jpwgen.utils.RandomFactory;
  * 
  * <h3>
  * Example:</h3>
- * <ul>
+ * <code>
  * <br>
  * String flags = "-N 50 -M 100 -y -s 16 -m -o -q ";<br>
  * <br>
@@ -429,7 +429,7 @@ import de.rrze.jpwgen.utils.RandomFactory;
  * String[] ar = flags.split(" "); <br>
  * 
  * 
- * List<String> passwords = PwGenerator.process(ar); <br>
+ * List&lt;String&gt; passwords = PwGenerator.process(ar); <br>
  * int count = 0;<br>
  * System.out.printf("\n");<br>
  * for (Iterator iter = passwords.iterator(); iter.hasNext();) <br>
@@ -438,7 +438,7 @@ import de.rrze.jpwgen.utils.RandomFactory;
  * String element = (String) iter.next();<br>
  * System.out.printf("%3d Password: * %s\n", ++count, element); <br>
  * <br>
- * 
+ * </code>
  * 
  * @author unrz205
  */

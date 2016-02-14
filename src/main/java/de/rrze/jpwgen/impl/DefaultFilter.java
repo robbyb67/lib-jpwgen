@@ -133,6 +133,8 @@ public class DefaultFilter extends AbstractPasswordFilter implements
 
 	/**
 	 * Default construct.
+	 * 
+	 * @param blacklist The list of blacklist strings
 	 */
 	public DefaultFilter(List<String> blacklist) {
 		this.blacklist = blacklist;

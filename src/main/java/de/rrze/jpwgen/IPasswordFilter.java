@@ -81,7 +81,7 @@ public interface IPasswordFilter {
 	/**
 	 * Sets the blacklist of the filter.
 	 * 
-	 * @param blacklist
+	 * @param blacklist List of strings
 	 */
 	public void setBlacklist(List<String> blacklist);
 
@@ -90,7 +90,7 @@ public interface IPasswordFilter {
 	 * 
 	 * @param blackWord
 	 *            the forbidden word
-	 * @return <em>true</em> on successful inclusion, <em>false</me>
+	 * @return <em>true</em> on successful inclusion, <em>false</em>
 	 *         otherwise
 	 */
 	public boolean addToBlacklist(String blackWord);

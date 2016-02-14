@@ -30,24 +30,23 @@ package de.rrze.jpwgen.utils;
  * places. It can clean up leading or trailing white-spaces. It can also replace
  * several white-spaces with a single one. <br>
  * <br>
- * Exampe:
+ * Example:
  * <ul>
- * <br>
- * String oldStr = " > <1-2-1-2-1-2-1-2-1-2-1-----2-1-2-1-2-1-2-1-2-1-2-1-2> < ";
- * <br>
- * String newStr = oldStr.replaceAll("-", " "); <br>
- * System.out.println(newStr); <br>
- * System.out.println(BlankRemover.ltrim(newStr)); <br>
- * System.out.println(BlankRemover.rtrim(newStr)); <br>
- * System.out.println(BlankRemover.itrim(newStr)); <br>
- * System.out.println(BlankRemover.lrtrim(newStr));
+ * <li>String oldStr = " &gt; &lt;1-2-1-2-1-2-1-2-1-2-1-----2-1-2-1-2-1-2-1-2-1-2-1-2&gt; &lt; ";</li>
+ * <li>String newStr = oldStr.replaceAll("-", " ");</li>
+ * <li>System.out.println(newStr);</li>
+ * <li>System.out.println(BlankRemover.ltrim(newStr));</li>
+ * <li>System.out.println(BlankRemover.rtrim(newStr));</li>
+ * <li>System.out.println(BlankRemover.itrim(newStr));</li>
+ * <li>System.out.println(BlankRemover.lrtrim(newStr));</li>
  * </ul>
  * Results in:
  * <ul>
- * <br>" > <1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2> < " <br>"> <1 2 1
- * 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2> < " <br>" > <1 2 1 2 1 2 1 2 1 2
- * 1 2 1 2 1 2 1 2 1 2 1 2 1 2> <" <br>" > <1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2
- * 1 2 1 2 1 2> < " <br>"> <1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2> <"
+ * <li>&gt; &lt;1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2&gt; &lt;</li>
+ * <li>&gt; &lt;1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2&gt; &lt;</li>
+ * <li>&gt; &lt;1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2&gt; &lt;</li>
+ * <li>&gt; &lt;1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2&gt; &lt;</li>
+ * <li>&gt; &lt;1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2&gt; &lt;</li>
  * </ul>
  * 
  * @author unrz205

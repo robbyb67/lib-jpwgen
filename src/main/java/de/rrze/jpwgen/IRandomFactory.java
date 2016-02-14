@@ -93,6 +93,7 @@ public interface IRandomFactory
 	/**
 	 * Returns a seeded normal Random number
 	 * 
+	 * @param seed Seed for random number
 	 * @return the seeded random number
 	 */
 	public Random getRandom(long seed);
@@ -101,6 +102,8 @@ public interface IRandomFactory
 	 * Returns a default instance of a SecureRandom number
 	 * 
 	 * @return the SecureRandom number
+	 * @throws NoSuchAlgorithmException Algorithm is unknown
+	 * @throws NoSuchProviderException Security provider is unknown
 	 */
 	public Random getSecureRandom() throws NoSuchAlgorithmException,
 			NoSuchProviderException;
@@ -112,8 +115,8 @@ public interface IRandomFactory
 	 *            the algorithm that should be used for the random number
 	 *            initialization
 	 * @return the SecureNumber
-	 * @throws NoSuchAlgorithmException
-	 * @throws NoSuchProviderException
+	 * @throws NoSuchAlgorithmException Algorithm is unknown
+	 * @throws NoSuchProviderException Security provider is unknown
 	 */
 	public Random getSecureRandom(String algorithm)
 			throws NoSuchAlgorithmException, NoSuchProviderException;
@@ -131,8 +134,8 @@ public interface IRandomFactory
 	 *            the security provider that should be used for the random
 	 *            number initialization
 	 * @return the SecureNumber
-	 * @throws NoSuchAlgorithmException
-	 * @throws NoSuchProviderException
+	 * @throws NoSuchAlgorithmException Algorithm is unknown
+	 * @throws NoSuchProviderException Security provider is unknown
 	 */
 	public Random getSecureRandom(String algorithm, String provider)
 			throws NoSuchAlgorithmException, NoSuchProviderException;;
