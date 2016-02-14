@@ -6,6 +6,7 @@
 	<artifactId>lib-jpwgen</artifactId>
 	<name>lib-jpwgen</name>
 	<version>1.4.8</version>
+	<packaging>jar</packaging>
 	<description>
 		The 'lib-jpwgen' library is a Java-based password generator whose
 		functionality resembles the popular 'pwgen' program.
@@ -22,11 +23,11 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-jar-plugin</artifactId> -->
+<!-- 				<version>2.6</version> -->
+<!-- 			</plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -53,16 +54,77 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>2.1</version>
+				<version>3.4</version>
+<!-- 				<configuration> -->
+<!-- 					<chmod>true</chmod> -->
+<!-- 					<chmodMode>gu+rw</chmodMode> -->
+<!-- 					<chmodOptions>-Rf</chmodOptions> -->
+<!-- 				</configuration> -->
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
 				<configuration>
-					<chmod>true</chmod>
-					<chmodMode>gu+rw</chmodMode>
-					<chmodOptions>-Rf</chmodOptions>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.6</version>
 			</plugin>
 
 		</plugins>
 	</build>
+
+	<!-- Site generation -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.6</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.6</version>
+				<configuration>
+					<targetJdk>1.6</targetJdk>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc-no-fork</report>
+							<report>test-javadoc-no-fork</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.19.1</version>
+			</plugin>
+
+		</plugins>
+	</reporting>
 
 	<url>https://github.com/robbyb67/lib-jpwgen</url>
 
@@ -116,7 +178,7 @@
 				<role>Developer</role>
 			</roles>
 		</contributor>
-		
+
 		<contributor>
 			<name>Hendrik Eggers</name>
 			<email>hendrik.eggers::at::rrze.uni-erlangen.de</email>
@@ -195,20 +257,20 @@
 	</issueManagement>
 
 	<distributionManagement>
-	    <repository>
-	             <id>release-bausdorf</id>
-	             <name>bausdorf release repository</name>
-	             <url>https://svn.bausdorf.de/nexus/content/repositories/releases/</url>
-	     </repository>
-	     <snapshotRepository>
-	             <id>snapshot-bausdorf</id>
-	             <name>bausdorf snapshot repository</name>
-	             <url>https://svn.bausdorf.de/nexus/content/repositories/snapshots/</url>
-	     </snapshotRepository>
-	     <site>
-	             <id>projects.bausdorf.de</id>
-	             <url>scp://www-data@elara/var/www/projects/${project.artifactId}/${project.version}</url>
-	     </site>
+		<repository>
+			<id>release-bausdorf</id>
+			<name>bausdorf release repository</name>
+			<url>https://svn.bausdorf.de/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-bausdorf</id>
+			<name>bausdorf snapshot repository</name>
+			<url>https://svn.bausdorf.de/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<site>
+			<id>projects.bausdorf.de</id>
+			<url>scp://www-data@elara/var/www/projects/${project.artifactId}/${project.version}</url>
+		</site>
 	</distributionManagement>
 
 	<scm>
@@ -235,30 +297,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-
-	<!-- Site generation -->
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.8.1</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.6</version>
-				<configuration>
-					<targetJdk>1.5</targetJdk>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>
-			</plugin>
-		</plugins>
-	</reporting>
 
 </project>
