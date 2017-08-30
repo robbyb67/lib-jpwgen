@@ -1,11 +1,11 @@
 package de.verti.toolkit.jpwgen.impl;
 
+import de.verti.toolkit.jpwgen.IPasswordFilter;
+import de.verti.toolkit.jpwgen.IPwDefConstants;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import de.verti.toolkit.jpwgen.IPasswordFilter;
-import de.verti.toolkit.jpwgen.IPwDefConstants;
 
 
 public abstract class AbstractPasswordFilter implements IPasswordFilter, IPwDefConstants {

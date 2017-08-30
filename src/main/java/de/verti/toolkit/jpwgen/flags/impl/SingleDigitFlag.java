@@ -3,6 +3,7 @@ package de.verti.toolkit.jpwgen.flags.impl;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
+
 public class SingleDigitFlag extends AbstractCliFlag {
 
 	private static final long serialVersionUID = 1L;
@@ -22,8 +23,10 @@ public class SingleDigitFlag extends AbstractCliFlag {
 		this.cliDescription = CLI_DESCRIPTION;
 	}
 
-	public Long mask(Long flags) {
+	@Override
+	public Long mask(final Long flags) {
 		Long tmp = new AtLeast2DigitsFlag().unmask(flags);
+
 		return super.mask(new PwDigitsFlag().mask(tmp));
 	}
 

@@ -4,7 +4,8 @@ import de.verti.toolkit.jpwgen.IGeneratorOption;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
-public class PwAmbiguousFlag extends AbstractCliFlag  implements IGeneratorOption {
+
+public class PwAmbiguousFlag extends AbstractCliFlag implements IGeneratorOption {
 
 	private static final long serialVersionUID = 1L;
 
@@ -37,10 +38,10 @@ public class PwAmbiguousFlag extends AbstractCliFlag  implements IGeneratorOptio
 	@Override
 	public String toString() {
 		return "PwAmbiguousFlag [cliShort=" + cliShort + ", cliLong=" + cliLong
-				+ ", cliDescription=" + cliDescription + ", cliShortDisable="
-				+ cliShortDisable + ", cliLongDisable=" + cliLongDisable
-				+ ", cliDescriptionDisable=" + cliDescriptionDisable
-				+ ", mask=" + mask + "]";
+			+ ", cliDescription=" + cliDescription + ", cliShortDisable="
+			+ cliShortDisable + ", cliLongDisable=" + cliLongDisable
+			+ ", cliDescriptionDisable=" + cliDescriptionDisable
+			+ ", mask=" + mask + "]";
 	}
 
 }

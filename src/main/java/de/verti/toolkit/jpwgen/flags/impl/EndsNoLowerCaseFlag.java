@@ -3,6 +3,7 @@ package de.verti.toolkit.jpwgen.flags.impl;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
+
 public class EndsNoLowerCaseFlag extends AbstractCliFlag {
 
 	private static final long serialVersionUID = 1L;
@@ -16,18 +17,18 @@ public class EndsNoLowerCaseFlag extends AbstractCliFlag {
 
 	public EndsNoLowerCaseFlag() {
 		mask = REGEX_ENDS_NO_LOWERCASE_FLAG;
-		
+
 		this.cliShort = CLI_SHORT;
 		this.cliLong = CLI_LONG;
 		this.cliDescription = CLI_DESCRIPTION;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "EndsNoLowerCaseFlag [cliShort=" + cliShort + ", cliLong="
-				+ cliLong + ", cliDescription=" + cliDescription
-				+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
-				+ cliLongDisable + ", cliDescriptionDisable="
-				+ cliDescriptionDisable + ", mask=" + mask + "]";
+			+ cliLong + ", cliDescription=" + cliDescription
+			+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
+			+ cliLongDisable + ", cliDescriptionDisable="
+			+ cliDescriptionDisable + ", mask=" + mask + "]";
 	}
 }

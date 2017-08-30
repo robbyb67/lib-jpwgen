@@ -4,7 +4,8 @@ import de.verti.toolkit.jpwgen.IGeneratorOption;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
-public class PwCapitalizeFlag extends AbstractCliFlag implements IGeneratorOption{
+
+public class PwCapitalizeFlag extends AbstractCliFlag implements IGeneratorOption {
 
 	private static final long serialVersionUID = 1L;
 
@@ -34,17 +35,18 @@ public class PwCapitalizeFlag extends AbstractCliFlag implements IGeneratorOptio
 		this.cliDescriptionDisable = CLI_DESCRIPTION_DISABLE;
 	}
 
-	public Long unmask(Long flags) {
+	@Override
+	public Long unmask(final Long flags) {
 		return new SingleCapitalFlag().unmask(super.unmask(flags));
 	}
 
 	@Override
 	public String toString() {
 		return "PwCapitalizeFlag [cliShort=" + cliShort + ", cliLong="
-				+ cliLong + ", cliDescription=" + cliDescription
-				+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
-				+ cliLongDisable + ", cliDescriptionDisable="
-				+ cliDescriptionDisable + ", mask=" + mask + "]";
+			+ cliLong + ", cliDescription=" + cliDescription
+			+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
+			+ cliLongDisable + ", cliDescriptionDisable="
+			+ cliDescriptionDisable + ", mask=" + mask + "]";
 	}
 
 }

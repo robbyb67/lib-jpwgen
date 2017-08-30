@@ -4,6 +4,7 @@ import de.verti.toolkit.jpwgen.IGeneratorOption;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
+
 public class PwSymbolsFlag extends AbstractCliFlag implements IGeneratorOption {
 
 	private static final long serialVersionUID = 1L;
@@ -34,12 +35,15 @@ public class PwSymbolsFlag extends AbstractCliFlag implements IGeneratorOption {
 		this.cliDescriptionDisable = CLI_DESCRIPTION_DISABLE;
 	}
 
-	public Long mask(Long flags) {
+	@Override
+	public Long mask(final Long flags) {
 		Long maskedFlag = super.mask(flags);
+
 		return new PwReducedSymbolsFlag().unmask(maskedFlag);
 	}
 
-	public Long unmask(Long flags) {
+	@Override
+	public Long unmask(final Long flags) {
 		Long tmp = flags;
 
 		if (new PwReducedSymbolsFlag().isMasked(tmp)) {
@@ -55,10 +59,10 @@ public class PwSymbolsFlag extends AbstractCliFlag implements IGeneratorOption {
 	@Override
 	public String toString() {
 		return "PwSymbolsFlag [cliShort=" + cliShort + ", cliLong=" + cliLong
-				+ ", cliDescription=" + cliDescription + ", cliShortDisable="
-				+ cliShortDisable + ", cliLongDisable=" + cliLongDisable
-				+ ", cliDescriptionDisable=" + cliDescriptionDisable
-				+ ", mask=" + mask + "]";
+			+ ", cliDescription=" + cliDescription + ", cliShortDisable="
+			+ cliShortDisable + ", cliLongDisable=" + cliLongDisable
+			+ ", cliDescriptionDisable=" + cliDescriptionDisable
+			+ ", mask=" + mask + "]";
 	}
 
 }

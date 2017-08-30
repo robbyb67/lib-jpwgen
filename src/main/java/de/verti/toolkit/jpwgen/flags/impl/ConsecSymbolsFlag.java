@@ -3,6 +3,7 @@ package de.verti.toolkit.jpwgen.flags.impl;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
+
 public class ConsecSymbolsFlag extends AbstractCliFlag {
 
 	private static final long serialVersionUID = 1L;
@@ -25,10 +26,10 @@ public class ConsecSymbolsFlag extends AbstractCliFlag {
 	@Override
 	public String toString() {
 		return "ConseqSymbolsFlag [cliShort=" + cliShort + ", cliLong="
-				+ cliLong + ", cliDescription=" + cliDescription
-				+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
-				+ cliLongDisable + ", cliDescriptionDisable="
-				+ cliDescriptionDisable + ", mask=" + mask + "]";
+			+ cliLong + ", cliDescription=" + cliDescription
+			+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
+			+ cliLongDisable + ", cliDescriptionDisable="
+			+ cliDescriptionDisable + ", mask=" + mask + "]";
 	}
 
 }

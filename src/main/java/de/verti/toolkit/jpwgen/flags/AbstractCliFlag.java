@@ -2,6 +2,7 @@ package de.verti.toolkit.jpwgen.flags;
 
 import de.verti.toolkit.jpwgen.ICliFlag;
 
+
 public class AbstractCliFlag extends AbstractPwFlag implements ICliFlag {
 
 	private static final long serialVersionUID = 1L;
@@ -51,10 +52,10 @@ public class AbstractCliFlag extends AbstractPwFlag implements ICliFlag {
 	@Override
 	public String toString() {
 		return "AbstractCliFlag [cliShort=" + cliShort + ", cliLong=" + cliLong
-				+ ", cliDescription=" + cliDescription + ", cliShortDisable="
-				+ cliShortDisable + ", cliLongDisable=" + cliLongDisable
-				+ ", cliDescriptionDisable=" + cliDescriptionDisable
-				+ ", mask=" + mask + "]";
+			+ ", cliDescription=" + cliDescription + ", cliShortDisable="
+			+ cliShortDisable + ", cliLongDisable=" + cliLongDisable
+			+ ", cliDescriptionDisable=" + cliDescriptionDisable
+			+ ", mask=" + mask + "]";
 	}
 
 }

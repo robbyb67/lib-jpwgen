@@ -3,6 +3,7 @@ package de.verti.toolkit.jpwgen.flags.impl;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
+
 public class AtLeast2SymbolsFlag extends AbstractCliFlag {
 
 	private static final long serialVersionUID = 1L;
@@ -22,13 +23,15 @@ public class AtLeast2SymbolsFlag extends AbstractCliFlag {
 		this.cliDescription = CLI_DESCRIPTION;
 	}
 
-	public Long mask(Long flags) {
+	@Override
+	public Long mask(final Long flags) {
 
 		Long tmp = new SingleSymbolFlag().unmask(flags);
 
 		if (new PwReducedSymbolsFlag().isMasked(tmp)
-				|| new PwSymbolsFlag().isMasked(tmp))
+				|| new PwSymbolsFlag().isMasked(tmp)) {
 			return super.mask(tmp);
+		}
 
 		return super.mask(new PwReducedSymbolsFlag().mask(tmp));
 	}
@@ -36,10 +39,10 @@ public class AtLeast2SymbolsFlag extends AbstractCliFlag {
 	@Override
 	public String toString() {
 		return "AtLeast2SymbolsFlag [cliShort=" + cliShort + ", cliLong="
-				+ cliLong + ", cliDescription=" + cliDescription
-				+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
-				+ cliLongDisable + ", cliDescriptionDisable="
-				+ cliDescriptionDisable + ", mask=" + mask + "]";
+			+ cliLong + ", cliDescription=" + cliDescription
+			+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
+			+ cliLongDisable + ", cliDescriptionDisable="
+			+ cliDescriptionDisable + ", mask=" + mask + "]";
 	}
 
 }

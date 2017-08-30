@@ -3,6 +3,7 @@ package de.verti.toolkit.jpwgen.flags.impl;
 import de.verti.toolkit.jpwgen.flags.AbstractCliFlag;
 import de.verti.toolkit.jpwgen.utils.Messages;
 
+
 public class AtLeast2DigitsFlag extends AbstractCliFlag {
 
 	private static final long serialVersionUID = 1L;
@@ -16,13 +17,14 @@ public class AtLeast2DigitsFlag extends AbstractCliFlag {
 
 	public AtLeast2DigitsFlag() {
 		mask = REGEX_AT_LEAST_2_DIGITS_FLAG;
-		
+
 		this.cliShort = CLI_SHORT;
 		this.cliLong = CLI_LONG;
 		this.cliDescription = CLI_DESCRIPTION;
 	}
 
-	public Long mask(Long flags) {
+	@Override
+	public Long mask(final Long flags) {
 		Long tmp = new SingleDigitFlag().unmask(flags);
 
 		return super.mask(new PwDigitsFlag().mask(tmp));
@@ -31,10 +33,10 @@ public class AtLeast2DigitsFlag extends AbstractCliFlag {
 	@Override
 	public String toString() {
 		return "AtLeast2DigitsFlag [cliShort=" + CLI_SHORT + ", cliLong="
-				+ cliLong + ", cliDescription=" + cliDescription
-				+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
-				+ cliLongDisable + ", cliDescriptionDisable="
-				+ cliDescriptionDisable + ", mask=" + mask + "]";
+			+ cliLong + ", cliDescription=" + cliDescription
+			+ ", cliShortDisable=" + cliShortDisable + ", cliLongDisable="
+			+ cliLongDisable + ", cliDescriptionDisable="
+			+ cliDescriptionDisable + ", mask=" + mask + "]";
 	}
 
 }

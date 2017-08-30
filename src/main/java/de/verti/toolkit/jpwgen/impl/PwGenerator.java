@@ -21,6 +21,15 @@
  */
 package de.verti.toolkit.jpwgen.impl;
 
+import de.verti.toolkit.jpwgen.IDefaultFilter;
+import de.verti.toolkit.jpwgen.IPasswordFilter;
+import de.verti.toolkit.jpwgen.IPasswordPolicy;
+import de.verti.toolkit.jpwgen.IProgressListener;
+import de.verti.toolkit.jpwgen.IPwDefConstants;
+import de.verti.toolkit.jpwgen.IPwGenerator;
+import de.verti.toolkit.jpwgen.utils.Messages;
+import de.verti.toolkit.jpwgen.utils.RandomFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,15 +40,6 @@ import java.util.Random;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import de.verti.toolkit.jpwgen.IDefaultFilter;
-import de.verti.toolkit.jpwgen.IPasswordFilter;
-import de.verti.toolkit.jpwgen.IPasswordPolicy;
-import de.verti.toolkit.jpwgen.IProgressListener;
-import de.verti.toolkit.jpwgen.IPwDefConstants;
-import de.verti.toolkit.jpwgen.IPwGenerator;
-import de.verti.toolkit.jpwgen.utils.Messages;
-import de.verti.toolkit.jpwgen.utils.RandomFactory;
 
 
 /**
@@ -379,12 +379,13 @@ import de.verti.toolkit.jpwgen.utils.RandomFactory;
  *
  * @author  unrz205
  */
+@SuppressWarnings("squid:S1226") // SONAR: Parameter reuse is intended
 public class PwGenerator implements IPwDefConstants, IDefaultFilter, IPwGenerator {
 
 	// A static list of predefined vowels and consonants dipthongs. Suitable for
 	// English speaking people.
 	// This can be exchanged or extended with a different one if needed.
-	public static final PwElement[] PW_ELEMENTS = {
+	protected static final PwElement[] PW_ELEMENTS = {
 		new PwElement("a", VOWEL), new PwElement("ae", VOWEL | DIPTHONG), //$NON-NLS-1$ //$NON-NLS-2$
 		new PwElement("ah", VOWEL | DIPTHONG), //$NON-NLS-1$
 		new PwElement("ai", VOWEL | DIPTHONG), //$NON-NLS-1$
@@ -501,7 +502,7 @@ public class PwGenerator implements IPwDefConstants, IDefaultFilter, IPwGenerato
 		}
 
 		for (Iterator<String> iter = filterIDs.iterator(); iter.hasNext();) {
-			String filterId = (String) iter.next();
+			String filterId = iter.next();
 			IPasswordFilter filter = filters.get(filterId);
 
 			Map<String, String> checked = filter
@@ -559,7 +560,7 @@ public class PwGenerator implements IPwDefConstants, IDefaultFilter, IPwGenerato
 	 * de.verti.toolkit.jpwgen.IProgressListener)
 	 */
 	@Override
-	@SuppressWarnings("squid:S3776") // SONAR: reducing complexity would make code harder to read
+	@SuppressWarnings({ "squid:S3776", "squid:S135" }) // SONAR: reducing complexity would make code harder to read
 	public synchronized List<String> generate(final int passwordCount,
 		final int iterationsCount,
 		final IProgressListener progressListener) {
@@ -625,6 +626,7 @@ public class PwGenerator implements IPwDefConstants, IDefaultFilter, IPwGenerato
 	 */
 
 	@Override
+	@SuppressWarnings("squid:S135") // SONAR: reducing break/continue would make code harder read
 	public synchronized String generate() {
 
 		int minPwLength = passwordPolicy.getMinPwLength();
@@ -695,12 +697,16 @@ public class PwGenerator implements IPwDefConstants, IDefaultFilter, IPwGenerato
 	 * @return  the newly created password
 	 */
 	@SuppressWarnings(
-		{ "squid:S3776", "squid:S1066" }
+		{ "squid:S3776", "squid:S1066", "squid:S135", "squid:S00117" }
 	) // SONAR: reducing complexity and merged if statements would make code harder to read
 	private synchronized String phonemes(final int size, final Long pw_flags, final Random random) {
-		int c, i, len, flags;
+		int c;
+		int i;
+		int len;
+		int flags;
 		Long feature_flags;
-		int prev, should_be;
+		int prev;
+		int should_be;
 		boolean first;
 		String str;
 		char ch;
