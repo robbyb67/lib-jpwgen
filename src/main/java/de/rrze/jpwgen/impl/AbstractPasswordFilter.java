@@ -1,14 +1,14 @@
 package de.rrze.jpwgen.impl;
 
+import de.rrze.jpwgen.IPasswordFilter;
+import de.rrze.jpwgen.IPwDefConstants;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import de.rrze.jpwgen.IPasswordFilter;
-import de.rrze.jpwgen.IPwDefConstants;
 
-public abstract class AbstractPasswordFilter implements IPasswordFilter,
-		IPwDefConstants {
+public abstract class AbstractPasswordFilter implements IPasswordFilter, IPwDefConstants {
 
 	// A list that stores the forbidden words
 	protected List<String> blacklist = new ArrayList<String>();
@@ -21,68 +21,78 @@ public abstract class AbstractPasswordFilter implements IPasswordFilter,
 		description = this.getClass().getSimpleName();
 	}
 
-	AbstractPasswordFilter(List<String> blacklist) {
+	AbstractPasswordFilter(final List<String> blacklist) {
 		this.blacklist = blacklist;
 		id = this.getClass().getSimpleName();
 		description = this.getClass().getSimpleName();
 	}
 
+	@Override
 	public String getId() {
 		return id;
 	}
 
+	@Override
 	public String getDescription() {
 		return description;
 	}
 
-	public List<String> filter(int passwordFlags, List<String> passwords) {
+	public List<String> filter(final int passwordFlags, final List<String> passwords) {
 		List<String> suitable = new ArrayList<String>();
+
 		for (Iterator<String> iter = passwords.iterator(); iter.hasNext();) {
-			String element = (String) iter.next();
-			if (filter(passwordFlags, passwords) != null)
+			String element = iter.next();
+
+			if (filter(passwordFlags, passwords) != null) {
 				suitable.add(element);
+			}
 		}
+
 		return suitable;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.rrze.idmone.utils.pwgen.IPassowrdFilter#getBlacklist()
 	 */
+	@Override
 	public synchronized List<String> getBlacklist() {
 		return blacklist;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.rrze.idmone.utils.pwgen.IPassowrdFilter#setBlacklist(java.util.List)
 	 */
-	public synchronized void setBlacklist(List<String> blacklist) {
+	@Override
+	public synchronized void setBlacklist(final List<String> blacklist) {
 		this.blacklist = blacklist;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.rrze.idmone.utils.pwgen.IPassowrdFilter#addToBlacklist(java.lang.String
 	 * )
 	 */
-	public synchronized boolean addToBlacklist(String blackWord) {
+	@Override
+	public synchronized boolean addToBlacklist(final String blackWord) {
 		return blacklist.add(blackWord);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.rrze.idmone.utils.pwgen.IPassowrdFilter#removeFromBlacklist(java.lang
 	 * .String)
 	 */
-	public synchronized boolean removeFromBlacklist(String blackWord) {
+	@Override
+	public synchronized boolean removeFromBlacklist(final String blackWord) {
 		return blacklist.remove(blackWord);
 	}
 
